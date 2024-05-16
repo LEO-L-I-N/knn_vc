@@ -34,6 +34,7 @@ def make_librispeech_df(root_path: Path) -> pd.DataFrame:
     return df
 
 
+# 执行的主函数
 def main(args):
     device = torch.device(args.device)
     SYNTH_WEIGHTINGS = F.one_hot(torch.tensor(args.synthesis_layer), num_classes=25).float().to(device)[:, None]
@@ -169,4 +170,3 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
     main(args)
-
